@@ -1083,4 +1083,32 @@ body .markdown-body
 <h2 id="4">4、网址名，网页名<a class="headerlink" href="#4" title="Permanent link"></a></h2>
 <div class="codehilite"><pre>1、关于 include()的使用
 2、在一个大项目中如何避免 网址、网页名称的冲突
+3、render如何找到网页？
+    在所有的templates中寻找提供的网页名称，但是只取第一个
+4、处理方法：在每个app下面创建一个templates/app的文件夹，用来存放，
+例如:render(request, &#39;app/xxx.html&#39;)
+5、处理突然想要修改网址：
+    5.1、给网址起名字 path(&#39;xxx/&#39;, views.xxx, name=&#39;xxx&#39;)
+    &lt;a href=&quot;{% url &#39;todolist_about&#39; %}&quot;&gt;&lt;/a&gt;
+    建议：name = &#39;appname_xxx&#39;
+6、网址名和其他app里面的重复了，处理办法
+    给一个前缀:
+    urls.py -&gt; app_name = &#39;appname&#39;
+    &lt;a href=&quot;{% url &#39;appname:todolist_about&#39; %}&quot;&gt;&lt;/a&gt;
+</pre></div>
+
+
+<h2 id="5">5、模板继承<a class="headerlink" href="#5" title="Permanent link"></a></h2>
+<div class="codehilite"><pre>                        ——article.html
+        ——base_news.html
+base.html               ——live.html
+        ——base_sports.html
+语法：
+    {% extends &quot;todolist/base.html&quot; %}
+    {% block css %}
+    todolist/home.css
+    {% endblock css %}
+
+    todolist/base.html——继承的网址地址
+    {% block css %} css是block的name
 </pre></div></article></body></html>
