@@ -1,6 +1,7 @@
 {% extends "todolist/base.html" %}
+{% load static %}
 {% block css %}
-todolist/home.css
+{% static "todolist/css.home.css" %}
 {% endblock css %}
 {% block 标题 %}
 个人待办清单
@@ -25,22 +26,22 @@ active
       <th scope="row">1</th>
       <td>Mark</td>
       <!-- <td><a href="/todo/edit/" class="text-success">编辑</a></td> -->
-      <td><a href="{% url 'todolist:todolist_edit' %}" class="text-success">编辑</a></td>
-      <td><a href="#">划掉</a></td>
+      <td><a href="{% url 'todolist:todolist_edit' %}" class="text-info">编辑</a></td>
+      <td><a href="#" class="text-info">划掉</a></td>
       <td><a href="#" class="text-info">删除</a></td>
     </tr>
     <tr>
       <th scope="row">2</th>
       <td>Mark</td>
-      <td><a href="/todo/edit/" class="text-success">编辑</a></td>
-      <td><a href="#">划掉</a></td>
+      <td><a href="/todo/edit/" class="text-info">编辑</a></td>
+      <td><a href="#" class="text-info">划掉</a></td>
       <td><a href="#" class="text-info">删除</a></td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Mark</td>
-      <td><a href="#" class="text-success">编辑</a></td>
-      <td><a href="#">划掉</a></td>
+      <td><a href="#" class="text-info">编辑</a></td>
+      <td><a href="#" class="text-info">划掉</a></td>
       <td><a href="#" class="text-info">删除</a></td>
     </tr>
     <tr class="table-dark">

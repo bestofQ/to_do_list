@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,12 +13,15 @@
       {% endblock 标题 %}
     </title>
 
+    <!-- lable icon -->
+    <link rel="shortcut icon" href="{% static 'todolist/icons/icon_list.png' %}">
+
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/navbar-static/">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="todolist/base.css">
+    <link rel="stylesheet" href="{% static 'todolist/css/base.css' %}">
     <link rel="stylesheet" href="{% block css %}{% endblock css %}">
 
   </head>
@@ -27,7 +31,7 @@
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item {% block 待办清单高亮 %}{% endblock 待办清单高亮 %}">
-        <a class="nav-link" href="{% url 'todolist:todolist_home' %}">待办清单</a>
+        <a class="nav-link" href="{% url 'todolist:todolist_home' %}"><img src="{% static 'todolist/images/logo_list.png' %}" width="33" height="33" class="d-inline-block align-top" alt=""> 待办清单</a>
       </li>
       <li class="nav-item {% block 关于本站高亮 %}{% endblock 关于本站高亮 %}">
       <!--  <a class="nav-link" href="/todo/about/">关于本站</a> -->
