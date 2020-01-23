@@ -24,13 +24,13 @@ active
   <tbody class="no-underline">
     <tr>
       <th scope="row">1</th>
-      <td>Mark</td>
-      <!-- <td><a href="/todo/edit/" class="text-success">编辑</a></td> -->
+      <td>{{ 待办事项 }}</td>
+      {# <td><a href="/todo/edit/" class="text-success">编辑</a></td> #}
       <td><a href="{% url 'todolist:todolist_edit' %}" class="text-info">编辑</a></td>
       <td><a href="#" class="text-info">划掉</a></td>
       <td><a href="#" class="text-info">删除</a></td>
     </tr>
-    <tr>
+    <!-- <tr>
       <th scope="row">2</th>
       <td>Mark</td>
       <td><a href="/todo/edit/" class="text-info">编辑</a></td>
@@ -50,7 +50,7 @@ active
       <td class="text-secondary">不可编辑</td>
       <td class="text-secondary">撤销</td>
       <td><a href="#" class="text-danger"></a>删除</td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 {% endblock 主体 %}
