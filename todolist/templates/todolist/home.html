@@ -29,8 +29,8 @@ active
           <th scope="row" class="text-dark">{{ forloop.counter }}</th>
           <td class="text-dark" id='line-through'>{{ lst.待办事项 }}</td>
           <td class="text-secondary">不可编辑</td>
-          <td class="text-secondary">撤销</td>
-          <td><a href="#" class="text-danger"></a>删除</td>
+          <td><a class="text-info" href='#'>撤销</a></td>
+          <td><a href="{% url 'todolist:todolist_delete' forloop.counter %}" class="text-danger">删除</a></td>
         </tr>
       {% else %}
         <tr>
@@ -39,7 +39,7 @@ active
           {# <td><a href="/todo/edit/" class="text-success">编辑</a></td> #}
           <td><a href="{% url 'todolist:todolist_edit' %}" class="text-info">编辑</a></td>
           <td><a href="#" class="text-info">划掉</a></td>
-          <td><a href="#" class="text-info">删除</a></td>
+          <td><a href="{% url 'todolist:todolist_delete' forloop.counter %}" class="text-info">删除</a></td>
         </tr>
       {% endif %}
       
