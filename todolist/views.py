@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -25,6 +25,11 @@ def home(request):
     elif request.method == 'GET':
         context = {'清单': lst}
         return render(request, 'todolist/home.html', context)
+
+def delete(request, forloop_counter):
+    lst.pop(forloop_counter-1)
+    # redirect('网址')
+    return redirect("todolist:todolist_home")
 
 def about(request):
 	return render(request, 'todolist/about.html')
