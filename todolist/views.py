@@ -46,3 +46,13 @@ def edit(request, forloop_counter):
         else:
             lst[int(forloop_counter) - 1]['待办事项'] = request.POST.get('待修改事项')
             return redirect("todolist:todolist_home")
+
+def cross(request, forloop_counter):
+    global lst
+    get_text = request.POST.get('完成状态')
+    if get_text == '已完成':
+        lst[int(forloop_counter) - 1]['已完成'] = True
+    else:
+        lst[int(forloop_counter) - 1]['已完成'] = False
+    # redirect('网址')
+    return redirect("todolist:todolist_home")

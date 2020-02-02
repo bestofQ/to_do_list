@@ -9,4 +9,6 @@ urlpatterns = [
     # path('edit/', views.edit, name='todolist_edit'),
     path('edit/<int:forloop_counter>', views.edit, name='todolist_edit'),
     path('delete/<int:forloop_counter>', views.delete, name='todolist_delete'),
+    # 划掉
+    path('cross/<int:forloop_counter>', views.cross, name='todolist_cross'),
 ]
