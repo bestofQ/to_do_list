@@ -15,12 +15,13 @@ def home(request):
     if request.method == 'POST':
         # request.POST.get('待办事项')
         if request.POST.get('待办事项') == '':
-            return render(request, 'todolist/home.html', {'警告':'请输入内容'})
+            context = {'清单': lst, '警告':'请输入内容'}
+            return render(request, 'todolist/home.html', context)
         else:
             text = request.POST.get('待办事项')
             lst.append({'待办事项': text, '已完成': False})
             # context = {'待办事项': request.POST.get('待办事项')}
-            context = {'清单': lst}
+            context = {'清单': lst, '信息': '添加成功'}
             return render(request, 'todolist/home.html', context)
     elif request.method == 'GET':
         context = {'清单': lst}
@@ -41,10 +42,10 @@ def edit(request, forloop_counter):
         context = {'待修改事项': lst[int(forloop_counter) - 1]['待办事项']}
         return render(request, "todolist/edit.html", context)
     elif request.method == 'POST':
-        if request.POST.get('待修改事项') == '':
+        if request.POST.get('已修改事项') == '':
             return render(request, 'todolist/edit.html', {'警告':'请输入内容'})
         else:
-            lst[int(forloop_counter) - 1]['待办事项'] = request.POST.get('待修改事项')
+            lst[int(forloop_counter) - 1]['待办事项'] = request.POST.get('已修改事项')
             return redirect("todolist:todolist_home")
 
 def cross(request, forloop_counter):
